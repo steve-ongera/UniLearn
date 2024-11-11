@@ -233,9 +233,10 @@
                                     </a>
                                 </div>
 
-                                <a href="course-single-v5.html" class="card-img sk-thumbnail d-block">
-                                    <img class="rounded shadow-light-lg" src="{{i.featured_image}}" alt="...">
+                                <a href="{% url 'course_details' slug=i.slug %}" class="card-img sk-thumbnail d-block">
+                                    <img class="rounded shadow-light-lg" src="{{ i.featured_image.url }}" alt="...">
                                 </a>
+                                
 
                                 <span class="badge sk-fade-bottom badge-lg badge-primary badge-pill badge-float bottom-0 left-0 mb-4 ms-4 fw-bold">
                                     <span class="text-white text-uppercase fw-bold font-size-xs">Discount {{i.discount}} %</span>
