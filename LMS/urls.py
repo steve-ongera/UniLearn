@@ -22,6 +22,7 @@ urlpatterns = [
     path('loginpage', user_login.LOGIN_PAGE, name='login_page'),
     path('accounts/profile', user_login.PROFILE, name='profile'),
     path('accounts/profile/update', user_login.PROFILE_UPDATE, name='profile_update'),
+    path('logout/', user_login.LOGOUT, name='logout'),  # Logout view
     path('checkout/<slug:slug>', views.CHECKOUT, name='checkout'),
     path('my-course', views.MY_COURSE, name='my_course'),
 

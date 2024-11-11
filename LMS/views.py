@@ -4,6 +4,8 @@ from app.models import Categories, Course, Level, video, UserCourse
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 from django.db.models import Sum
+from django.contrib import messages
+from django.contrib.auth.models import AnonymousUser
 
 
 def BASE(request):
@@ -97,14 +99,20 @@ def SEARCH_COURSE(request):
 
 def COURSE_DETAILS(request, slug):
     category = Categories.get_all_category(Categories)
-    time_duration = video.objects.filter(course__slug = slug).aggregate(sum=Sum('time_duration'))
+    time_duration = video.objects.filter(course__slug=slug).aggregate(sum=Sum('time_duration'))
 
-    course_id = Course.objects.get(slug = slug)
-    try:
-        check_enroll = UserCourse.objects.get(user = request.user, course = course_id)
-    except UserCourse.DoesNotExist:
+    course_id = Course.objects.get(slug=slug)
+
+    # Check if user is authenticated
+    if isinstance(request.user, AnonymousUser):
         check_enroll = None
-    course = Course.objects.filter(slug = slug)
+    else:
+        try:
+            check_enroll = UserCourse.objects.get(user=request.user, course=course_id)
+        except UserCourse.DoesNotExist:
+            check_enroll = None
+
+    course = Course.objects.filter(slug=slug)
     if course.exists():
         course = course.first()
     else:
@@ -149,3 +157,6 @@ def MY_COURSE(request):
         'course': course,
     }
     return render(request, 'course/my-course.html', context)
+
+
+
