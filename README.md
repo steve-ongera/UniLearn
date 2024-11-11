@@ -1,7 +1,7 @@
 # UNILEARN (Learning-Management-System-using-Django)
 
 
-# Basic Principle/Architechture
+## Basic Principle/Architechture
 This project is basically based on a renowned E-learning website: UDEMY. In this project we can see different 
 web-pages with different functionality(Home, About us, Login, Signup etc.) and different courses which are 
 listed in the 'All courses' page. The website has the functionality which shows enrolled courses in a 
@@ -17,29 +17,29 @@ and we have to give the acces to the mail.
 Tool Used: Python, Django, SQLITE3, RDBMS, Models, HTML, CSS, Javascript etc.
 
 
-# Step-1: Creating Virtual Environment
+## Step-1: Creating Virtual Environment
 Use the command: python -m venv "env-name you want to set"
 Example: python -m venv myenv
 
 
-# Step-2: Changing directory
+## Step-2: Changing directory
 Use the command: cd "project directory name"
 Example: cd LMS
 
 
-# Step34: Installing requirements.txt
+## Step4: Installing requirements.txt
 Use this command: pip install -r requirements.txt
 
 
-# Step-4: Migrate all the changes into the database
+## Step-4: Migrate all the changes into the database
 Use this command: python manage.py migrate
 
 
-# Step-5: Creating super user to acces the django-admin panel
+## Step-5: Creating super user to acces the django-admin panel
 Use this command: python manage.py createsuperuser
 
 
-# Step-6: Run the WSGI server
+## Step-6: Run the WSGI server
 Use the command: python manage.py runserver
 
 --> Please check the server which is running in console is Development server or not
