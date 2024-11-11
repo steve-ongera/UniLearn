@@ -252,11 +252,11 @@
                                 </a>
 
                                 <!-- Preheading -->
-                                <a href="course-single-v5.html"><span class="mb-1 d-inline-block text-gray-800">{{i.category}}</span></a>
+                                <a href="{% url 'course_details' slug=i.slug %}"><span class="mb-1 d-inline-block text-gray-800">{{i.category}}</span></a>
 
                                 <!-- Heading -->
                                 <div class="position-relative">
-                                    <a href="course-single-v5.html" class="d-block stretched-link"><h4 class="line-clamp-2 h-md-48 h-lg-58 me-md-6 me-lg-10 me-xl-4 mb-2">{{i.title}}</h4></a>
+                                    <a href="{% url 'course_details' slug=i.slug %}" class="d-block stretched-link"><h4 class="line-clamp-2 h-md-48 h-lg-58 me-md-6 me-lg-10 me-xl-4 mb-2">{{i.title}}</h4></a>
 
                                     <div class="d-lg-flex align-items-end flex-wrap mb-n1">
                                         <div class="star-rating mb-2 mb-lg-0 me-lg-3">

@@ -5,7 +5,7 @@
 
             <!-- Brand -->
             <a class="navbar-brand" href="{% url 'home'%}">
-                <img src="{% static 'assets/img/brand-gigas.svg' %}" class="navbar-brand-img" alt="...">
+                <img src="{% static 'assets/img/brand-unilearn.svg' %}" class="navbar-brand-img" alt="...">
             </a>
 
             <!-- Vertical Menu -->
@@ -42,7 +42,7 @@
                                 <div class="dropdown-menu-md bg-primary rounded dropdown-menu-inner">
 
                                     {% for i in cat.course_set.all %}
-                                    <a class="dropdown-item" href="course-single-v1.html">
+                                    <a class="dropdown-item" href="{% url 'course_details' slug=i.slug %}">
                                         {{i.title}}
                                     </a>
                                     {% endfor %}
