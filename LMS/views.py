@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from django.db.models import Sum
 from django.contrib import messages
 from django.contrib.auth.models import AnonymousUser
+from django.contrib.auth.decorators import login_required
 
 
 def BASE(request):
@@ -149,7 +150,7 @@ def CHECKOUT(request, slug):
         return redirect('my_course')
     return render(request, 'checkout/checkout.html')
 
-
+@login_required
 def MY_COURSE(request):
     course = UserCourse.objects.filter(user = request.user)
 
